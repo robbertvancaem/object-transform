@@ -1,6 +1,15 @@
 import { capitalizeKeys } from '../index';
 
 describe('capitalizeKeys', () => {
+  test('transforms null as expected', () => {
+    const expected = {
+      MyKey: null
+    };
+    const input = { myKey: null };
+    const actual = capitalizeKeys(input);
+    expect(actual).toEqual(expected);
+  });
+
   test('transforms key-value pairs as expected', () => {
     const expected = {
       MyKey: 'bla'

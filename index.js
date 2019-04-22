@@ -9,6 +9,10 @@ export const capitalizeKeys = obj => {
 			acc[capitalizedKey] = obj[key].map(capitalizeKeys);
 			return acc;
 		}
+		if (obj[key] === null) {
+			acc[capitalizedKey] = null;
+			return acc;
+		}
 		if (typeof obj[key] === 'object') {
 			acc[capitalizedKey] = capitalizeKeys(obj[key])
 			return acc;
